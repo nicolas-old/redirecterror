@@ -1,7 +1,7 @@
 @model RedirectError.Models.EventRequest
 @{
     ViewData["Title"] = "Redirect Error page";
-    var urlSearch = $"http://google.com/search?q=Event ID {ViewData["LinkTo"]}";
+    var urlSearch = ViewData["LinkTo"];
 }
 
 <div class="page-header">

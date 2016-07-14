@@ -22,8 +22,21 @@ namespace RedirectError.Controllers
             ViewData["CacheDays"] = CACHEDAYS;
             return View(lastErrors);
         }
+        public IActionResult RedirectErrGoogle([FromQuery] EventRequest evt)
+        {
+            evt.Provider = "Google";
+            ViewData["LinkTo"] = string.Format("http://www.google.com/search?q={0} {1} {2}", evt.EvtID, evt.EvtSrc, evt.ProdName);
+            return RedirectErr(evt);
+        }
 
-        public IActionResult RedirectErr([FromQuery] EventRequest evt)
+        public IActionResult RedirectErrBing([FromQuery] EventRequest evt)
+        {
+            evt.Provider = "Bing";
+            ViewData["LinkTo"] = string.Format("http://www.bing.com/search?q={0} {1} {2}", evt.EvtID, evt.EvtSrc, evt.ProdName);
+            return RedirectErr(evt);
+        }
+
+        private IActionResult RedirectErr(EventRequest evt)
         {
             IList<EventRequest> lastErrors;
             if(!_memoryCache.TryGetValue(CACHEKEY, out lastErrors))
@@ -40,8 +53,8 @@ namespace RedirectError.Controllers
                     )
             );
 
-            ViewData["LinkTo"] = string.Format("{0} {1} {2}", evt.EvtID, evt.EvtSrc, evt.ProdName);
-            return View(evt); 
+            
+            return View("RedirectErr",evt); 
         }
 
 

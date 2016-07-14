@@ -1,13 +1,32 @@
 @{
     ViewData["Title"] = "About";
 }
+<h1>Objetivo</h1>
 <p>Site responsavel por realizar a consulta dos erros que ocorrem no event viewer da Microsoft.</p>
-<p>Muitas vezes o proprio redirecionador da Microsoft não gera informações válidas para nossa pesquisa </p>
+<p>Muitas vezes o proprio redirecionador da Microsoft não ajuda com informações válidas para nossa pesquisa, portanto redirecionamos para a pesquisa para os principais buscadores Google/Bing </p>
 
 <h1>Configuração</h1>
 <ol>
-    <li>Alterar a combinação de registros do windows (para entrar no editor de registros pressionar a combinação de tecla <b>[WIN]</b>+R e digitar regedit)</li>
-    <li>Encontrar a chave <b>MicrosoftRedirectionURL</b></li>
-    <li>Altere a url para  @string.Concat(ViewData["URLRedirect"],Url.Action("RedirectErr","Home"))</li>
+    <li>Alterar a combinação de registros do windows (para entrar no editor de registros pressionar a combinação de tecla <b><abbr title="Tecla do Windows">[WIN]</abbr></b>+R e digitar regedit)
+    </li>
+    <li>Percorrer até o caminho: <strong><abbr title="HKEY_LOCAL_MACHINE">HKLM</abbr>\Software\Microsoft\Windows NT\CurrentVersion\Event Viewer</strong>
+    </li>
+    <li>Encontrar a chave <strong>MicrosoftRedirectionURL</strong></li>
+    <li>Altere a url de pesquisa
+        <ol>
+            <li>Para utilizar o google: @string.Concat(ViewData["URLRedirect"],Url.Action("RedirectErrGoogle","Home"))</li>
+            <li>Para utilizar o bing: @string.Concat(ViewData["URLRedirect"],Url.Action("RedirectErrBing","Home"))</li>
+        </ol><br/>
+        <img src="~/images/RegEdit.png" class="img-thumbnail" alt="Tela de edição de registro">
+    <li>Sempre que você encontrar um erro no event viewer, você pode clicar no "Event Log Online Help"<br/>
+    <img src="~/images/EventViewer.png" class="img-thumbnail" alt="Onde devemos clicar para encontrar o erro"><br/>
+    </li>
+    <li>Aparecerá a procura que será realizada<br/>
+    <img src="~/images/Aplicacao.png" class="img-thumbnail" alt="Tela de pesquisa inicial">
+    </li>
+    <li>
+        Pronto! Agora basta procurar as ultimas referencias e tentar solucionar o erro. <br/>
+        <img src="~/images/Buscador.png" class="img-thumbnail" alt="Tela de resultado da pesquisa">
+    </li>
+
 </ol>
-<img src="~/images/RegEdit.png" alt="Tela de edição de registro">

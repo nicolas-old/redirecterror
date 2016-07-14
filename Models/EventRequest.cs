@@ -15,6 +15,8 @@ namespace RedirectError.Models
         public string LCID { get; set; }
         public DateTime DataConsulta { get; set; }
 
+        public string Provider{get;set;}
+
     }
 
 }
