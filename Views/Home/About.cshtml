@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "About";
+}
+<p>Site responsavel por realizar a consulta dos erros que ocorrem no event viewer da Microsoft.</p>
+<p>Muitas vezes o proprio redirecionador da Microsoft não gera informações válidas para nossa pesquisa </p>
+
+<h1>Configuração</h1>
+<ol>
+    <li>Alterar a combinação de registros do windows (para entrar no editor de registros pressionar a combinação de tecla <b>[WIN]</b>+R e digitar regedit)</li>
+    <li>Encontrar a chave <b>MicrosoftRedirectionURL</b></li>
+    <li>Altere a url para  @string.Concat(ViewData["URLRedirect"],Url.Action("RedirectErr","Home"))</li>
+</ol>
+<img src="~/images/RegEdit.png" alt="Tela de edição de registro">

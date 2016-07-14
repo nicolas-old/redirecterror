@@ -1,0 +1,32 @@
+@model IList<RedirectError.Models.EventRequest>
+@{
+    ViewData["Title"] = "Last errors";
+}
+<h1>Last errors <small>(@ViewData["CacheDays"] days of data)</small></h1>
+@if(Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Evt Id</th>
+                <th>Evt Src</th>
+                <th>Prod Name</th>
+                <th>Prod Ver</th>
+                <th>LCID</th>
+                <th>Data consulta</th>
+            </tr>
+        </thead>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.EvtID</td>
+                <td>@item.EvtSrc</td>
+                <td>@item.ProdName</td>
+                <td>@item.ProdVer</td>
+                <td>@item.LCID</td>
+                <td>@item.DataConsulta</td>
+            </tr>
+        }
+    </table>
+
+}

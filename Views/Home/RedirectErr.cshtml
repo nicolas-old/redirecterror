@@ -1,0 +1,43 @@
+@model RedirectError.Models.EventRequest
+@{
+    ViewData["Title"] = "Redirect Error page";
+    var urlSearch = $"http://google.com/search?q=Event ID {ViewData["LinkTo"]}";
+}
+
+<div class="page-header">
+    <h1>Erro na aplicacao <small>@Model.ProdName</small></h1>
+</div>
+<p>
+    Você será redirecionado <mark>automaticamente</mark> dentro de 5 segundos, caso ocorra algum problema, <a href=" http://google.com/search?q=Event ID @ViewData["LinkTo"]">clique aqui</a> 
+</p>
+
+<form>
+    <div class="form-group">
+        <label for="EvtId">Event ID</label>
+        <input type="text" class="form-control" id="evtId" placeholder="Event ID" value="@Model.EvtID" disabled>
+    </div>
+    <div class="form-group">
+        <label for="EvtSrc">Event source</label>
+        <input type="text" class="form-control" id="EvtSrc" placeholder="Event source" value="@Model.EvtSrc" disabled>
+    </div>
+    <div class="form-group">
+        <label for="ProdName">Product name</label>
+        <input type="text" class="form-control" id="ProdName" placeholder="Product name" value="@Model.ProdName" disabled>
+    </div>
+    <div class="form-group">
+        <label for="ProdVer">Product version</label>
+        <input type="text" class="form-control" id="ProdVer" placeholder="Product Version" value="@Model.ProdVer" disabled>
+    </div>
+    <div class="form-group">
+        <label for="LCID">LCID</label>
+        <input type="text" class="form-control" id="LCID" placeholder="LCID" value="@Model.LCID" disabled>
+    </div>
+    <a href="@urlSearch" class="btn btn-default">Procurar solução</a>
+</form>
+
+
+@section scripts{
+    <script>
+        setTimeout(function(){ window.location="@urlSearch"; }, 5000);
+    </script>
+}
