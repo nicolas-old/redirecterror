@@ -14,8 +14,10 @@
     <li>Encontrar a chave <strong>MicrosoftRedirectionURL</strong></li>
     <li>Altere a url de pesquisa
         <ol>
-            <li>Para utilizar o google: @string.Concat(ViewData["URLRedirect"],Url.Action("RedirectErrGoogle","Home"))</li>
-            <li>Para utilizar o bing: @string.Concat(ViewData["URLRedirect"],Url.Action("RedirectErrBing","Home"))</li>
+            <li>Para utilizar o google: @string.Concat(ViewData["URLRedirect"],Url.Action("RedirectErrGoogle","Home"))
+            </li>
+            <li>Para utilizar o bing: @string.Concat(ViewData["URLRedirect"],Url.Action("RedirectErrBing","Home"))
+            </li>
         </ol><br/>
         <img src="~/images/RegEdit.png" class="img-thumbnail" alt="Tela de edição de registro">
     <li>Sempre que você encontrar um erro no event viewer, você pode clicar no "Event Log Online Help"<br/>
@@ -28,5 +30,7 @@
         Pronto! Agora basta procurar as ultimas referencias e tentar solucionar o erro. <br/>
         <img src="~/images/Buscador.png" class="img-thumbnail" alt="Tela de resultado da pesquisa">
     </li>
-
 </ol>
+@section scripts{
+    <script src="~/lib/clipboard/dist/clipboard.min.js"></script>
+}
