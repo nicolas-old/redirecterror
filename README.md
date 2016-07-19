@@ -33,7 +33,7 @@ Veja a lista de [contributors](https://github.com/nicolastarzia/redirecterror/co
 
 ## License
 
-Este projeto está sobre a licença GNU - veja o arquivo [LICENSE.md](LICENSE.md) para maiores detalhes
+Este projeto está sobre a licença GNU - veja o arquivo [LICENSE.md](LICENSE.MD) para maiores detalhes
 
 
 ## Thanks
